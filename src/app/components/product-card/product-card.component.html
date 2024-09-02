@@ -1,0 +1,10 @@
+<a class="product-card" [routerLink]="['/product', product.id]">
+  <img [src]="product.imageUrls[0]" alt="{{ product.name }}" class="product-image" (error)="onImageError($event)">
+  <h3>{{ product.name }}</h3>
+  <p>Satıcı Mağaza: {{product.storeName}}</p>
+  <p>{{ product.description }}</p>
+  <p>Price: {{ product.price | currency:'TRY' }}</p>
+  <p>Category: {{ getCategoryName(product.categoryId) }}</p>
+  <p *ngIf="product.stock > 0">In Stock: {{ product.stock }}</p>
+  <p *ngIf="product.stock === 0">Out of Stock</p>
+</a>

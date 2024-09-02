@@ -1,0 +1,21 @@
+<div *ngIf="product" class="product-detail">
+  <div class="left-side">
+    <div class="image-slider">
+      <button class="prev" (click)="prevImage()">&#10094;</button>
+      <img [src]="product.imageUrls[currentImageIndex]" alt="{{ product.name }}" class="product-image" (error)="onImageError($event)">
+      <button class="next" (click)="nextImage()">&#10095;</button>
+    </div>
+  </div>
+  <div class="right-side">
+    <h2>{{ product.name }}</h2>
+    <p [routerLink]="['/profile', product.ownerUsername]"> Satıcı Mağaza: {{product.storeName}}</p>
+    <p>{{ product.description }}</p>
+    <p>Fiyat: {{ product.price | currency:'TRY' }}</p>
+    <p *ngIf="product.stock > 0">Stok Miktarı: {{ product.stock }}</p>
+    <p *ngIf="product.stock === 0">Stokta Yok</p>
+    <button *ngIf="getRole() === 'ROLE_CUSTOMER'" (click)="buyNow(product)">Satın Al</button>
+    <button *ngIf="getRole() === 'ROLE_CUSTOMER'" (click)="addToCart(product)">Sepete Ekle</button>
+  </div>
+</div>
+
+<app-comments *ngIf="product" [productId]="product.id"></app-comments>

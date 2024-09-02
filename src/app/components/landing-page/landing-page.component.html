@@ -1,0 +1,8 @@
+<div class="container">
+  <div *ngFor="let category of categories" class="category">
+    <h2>Size Özel {{ category.name }}</h2>
+    <div class="products">
+      <app-product-card *ngFor="let product of productsByCategory[category.id]" [product]="product"></app-product-card>
+    </div>
+  </div>
+</div>

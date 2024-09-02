@@ -1,0 +1,7 @@
+<div class="search-results-container">
+  <h2>Arama Sonuçları: "{{ query }}"</h2>
+  <div *ngIf="products.length === 0">Ürün bulunamadı.</div>
+  <div class="product-grid">
+    <app-product-card *ngFor="let product of products" [product]="product"></app-product-card>
+  </div>
+</div>

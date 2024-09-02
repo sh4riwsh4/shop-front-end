@@ -1,0 +1,35 @@
+<header class="header">
+  <nav>
+    <ul class="nav-list">
+      <li><a routerLink="/">Anasayfa</a></li>
+      <li><a routerLink="/products">Ürünler</a></li>
+      <li *ngIf="!isLoggedIn()"><a routerLink="/login">Giriş Yap</a></li>
+      <li *ngIf="!isLoggedIn()"><a routerLink="/role">Kayıt Ol</a></li>
+      <li *ngIf="isLoggedIn()">
+        <a *ngIf="getRole() === 'ROLE_CUSTOMER'" routerLink="/my-cart">Sepetim</a>
+        <a *ngIf="getRole() === 'ROLE_SELLER'" routerLink="/my-products">Ürünlerim</a>
+      </li>
+      <li class="search-container">
+        <app-search></app-search>
+      </li>
+      <li *ngIf="isLoggedIn()" class="dropdown">
+        <div class="user-wallet-container">
+          <a routerLink="/orders">
+            <i class="fa-solid fa-box"></i> Siparişlerim
+          </a>
+          <a>
+            <i class="fa-solid fa-wallet"></i>
+            {{ getWallet() | currency:'TRY':'symbol':'1.0-0' }}
+          </a>
+          <a (click)="toggleDropdown()">
+            <i class="fa-regular fa-user"></i> {{ getUsername() }}
+          </a>
+        </div>
+        <ul class="dropdown-menu" [class.show]="dropdownOpen">
+          <li><a [routerLink]="['/profile', getUsername()]">Profil</a></li>
+          <li><a (click)="logout()">Çıkış Yap</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>

@@ -1,0 +1,6 @@
+<div class="category-bar">
+  <button (click)="navigateToCategory()">Tüm Ürünler</button>
+  <button *ngFor="let category of categories" (click)="navigateToCategory(category.id)">
+    {{ category.name }}
+  </button>
+</div>

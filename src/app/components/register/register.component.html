@@ -1,0 +1,32 @@
+<div class="logo-container">
+  <a class="logo" routerLink="/home">ARB</a>
+</div>
+<div class="registration-class">
+  <a class="registration-text">Kayıt Ol</a>
+  <form (ngSubmit)="onSubmit()" #registrationForm="ngForm" class="registration-form">
+    <div *ngIf="role === 'ROLE_CUSTOMER'">
+      <input type="text" id="customerName" [(ngModel)]="customerName" name="customerName" placeholder="Ad" required [ngClass]="{'invalid': formSubmitted && isFieldEmpty(customerName)}" />
+
+      <input type="text" id="customerSurname" [(ngModel)]="customerSurname" name="customerSurname" placeholder="Soyad" required [ngClass]="{'invalid': formSubmitted && isFieldEmpty(customerSurname)}" />
+    </div>
+
+    <div *ngIf="role === 'ROLE_SELLER'">
+      <input type="text" id="storeName" [(ngModel)]="storeName" name="storeName" placeholder="Mağaza Adı" required [ngClass]="{'invalid': formSubmitted && isFieldEmpty(storeName)}" />
+    </div>
+
+    <input type="text" id="username" [(ngModel)]="username" name="username" placeholder="Kullanıcı Adı" required [ngClass]="{'invalid': formSubmitted && isFieldEmpty(username)}" />
+
+    <input type="email" id="email" [(ngModel)]="email" name="email" placeholder="E-posta" required [ngClass]="{'invalid': formSubmitted && isFieldEmpty(email)}" />
+
+    <input type="password" id="password" [(ngModel)]="password" name="password" placeholder="Şifre" required [ngClass]="{'invalid': formSubmitted && isFieldEmpty(password)}" />
+
+    <input type="password" id="confirmPassword" [(ngModel)]="confirmPassword" name="confirmPassword" placeholder="Şifreyi Onayla" required [ngClass]="{'invalid': formSubmitted && isFieldEmpty(confirmPassword)}" />
+
+    <button type="submit">Kayıt Ol</button>
+
+    <div class="success-message" *ngIf="successMessage">{{ successMessage }}</div>
+    <div class="error-message" *ngIf="errorMessage">{{ errorMessage }}</div>
+
+    <a class="register-text">Zaten bir hesabın var mı? <span routerLink='/login'><b class="register-blue">Giriş yap.</b></span></a>
+  </form>
+</div>

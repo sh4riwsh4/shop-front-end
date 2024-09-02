@@ -1,0 +1,8 @@
+<app-category-bar></app-category-bar>
+<div class="products">
+  <h2 *ngIf="categoryName">{{ categoryName | titlecase }} Kategorisindeki Ürünler</h2>
+  <h2 *ngIf="!categoryName">Tüm Ürünler</h2>
+  <div class="product-grid">
+    <app-product-card *ngFor="let product of filteredProducts" [product]="product"></app-product-card>
+  </div>
+</div>

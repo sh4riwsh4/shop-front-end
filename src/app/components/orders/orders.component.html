@@ -1,0 +1,14 @@
+<div *ngIf="orders.length > 0; else noOrders">
+  <h2>Sipariş Geçmişi</h2>
+  <div class="card-container">
+    <app-order-card
+      *ngFor="let order of orders"
+      [order]="order"
+      [product]="products[order.productId]"
+      [role]="getRole()"
+    ></app-order-card>
+  </div>
+</div>
+<ng-template #noOrders>
+  <p>Henüz siparişiniz yok.</p>
+</ng-template>

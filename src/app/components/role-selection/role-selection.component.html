@@ -1,0 +1,16 @@
+<div class="logo-container">
+  <a class="logo" routerLink="/home">ARB</a>
+</div>
+<div class="center-container">
+  <a class="role-text">Müşteri veya satıcı olarak aramıza katıl!</a>
+    <div class="role-selection">
+      <div class="role-option" [class.selected]="role === 'ROLE_CUSTOMER'" (click)="selectRole('ROLE_CUSTOMER')">
+        <b>Müşteri</b>&nbsp;olarak katılmak istiyorum.
+      </div>
+      <div class="role-option" [class.selected]="role === 'ROLE_SELLER'" (click)="selectRole('ROLE_SELLER')">
+        <b>Satıcı</b>&nbsp;olarak katılmak istiyorum.
+      </div>
+    </div>
+  <button class="role-button" (click)="onContinue()" [disabled]="!role">Devam Et</button>
+  <a>Zaten bir hesabın var mı? <span routerLink='/login'><b class="login-blue">Giriş yap.</b></span></a>
+</div>

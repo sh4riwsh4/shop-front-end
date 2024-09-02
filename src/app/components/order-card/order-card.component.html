@@ -1,0 +1,36 @@
+<div class="card">
+  <div class="card-header">
+    <h2 class="card-title">{{ product?.name }}</h2>
+    <p *ngIf="role === 'ROLE_CUSTOMER'" class="card-subtitle">{{ product?.storeName}} - {{product?.price | currency:'TRY'}}</p>
+    <p *ngIf="role === 'ROLE_SELLER'" class="card-subtitle">{{product?.price | currency:'TRY'}}</p>
+    <p class="card-date"> {{order?.orderDate | date: 'd MMMM y, HH:mm'}} </p>
+    <div class="card-price">
+      ADRES
+    </div>
+  </div>
+  <div class="card-footer">
+    <div *ngIf="role === 'ROLE_CUSTOMER'" class="info-group">
+      <a class="info-waiting" *ngIf="order && getStatus(order) === 'WAITING'">ONAY BEKLİYOR</a>
+      <a class="info-cancelled" *ngIf="order && getStatus(order) === 'CANCELLED'">İPTAL EDİLDİ</a>
+      <a class="info-accepted" *ngIf="order && getStatus(order) === 'ACTIVE'">ONAYLANDI</a>
+    </div>
+    <div *ngIf="role === 'ROLE_SELLER'" class="button-group">
+
+      <a *ngIf="order && getStatus(order) === 'WAITING'" class="card-button reject" (click)="setOrderStatus(order, 'CANCELLED')" aria-describedby="tier-company">
+        REDDET
+      </a>
+
+      <a *ngIf="order && getStatus(order) === 'WAITING'" class="card-button accept" (click)="setOrderStatus(order, 'ACCEPTED')" aria-describedby="tier-company">
+        ONAYLA
+      </a>
+
+      <a class="seller-cancelled" *ngIf="order && getStatus(order) === 'CANCELLED'">
+        REDDEDİLDİ
+      </a>
+
+      <a class="seller-accepted" *ngIf="order && getStatus(order) === 'ACTIVE'">
+        ONAYLANDI
+      </a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,173 @@
+.product-detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+}
+
+.left-side {
+  flex: 0 0 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.right-side {
+  flex: 0 0 60%;
+  padding-left: 20px;
+}
+
+.image-slider {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-image {
+  height: 100%;
+  width: 300px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+button.prev, button.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 18px;
+}
+
+button.prev {
+  left: 10px;
+}
+
+button.next {
+  right: 10px;
+}
+
+button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-right: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.comments-section {
+  background-color: #f9f9f9;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.comments-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.average-rating {
+  display: flex;
+  align-items: center;
+}
+
+.average-rating span {
+  margin-left: 10px;
+  font-size: 1.2em;
+  color: #555;
+}
+
+.comment {
+  margin-bottom: 15px;
+}
+
+.comment-author {
+  font-weight: bold;
+}
+
+.comment-date {
+  font-style: italic;
+  color: #888;
+}
+
+.add-comment {
+  margin-top: 20px;
+}
+
+.add-comment form {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-comment form div {
+  margin-bottom: 10px;
+}
+
+.add-comment form label {
+  font-weight: bold;
+}
+
+.add-comment form input,
+.add-comment form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.add-comment form button {
+  align-self: flex-start;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.add-comment form button:hover {
+  background-color: #0056b3;
+}
+
+.fa-star, .fa-star-o {
+  margin-right: 5px;
+}
+
+.star-rating {
+  font-size: 1.5em;
+  color: #ffca28;
+  cursor: pointer;
+}
+
+.fa-star, .fa-star-half-o, .fa-star-o {
+  margin-right: 5px;
+}
+
+.readonly {
+  pointer-events: none;
+}

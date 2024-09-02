@@ -1,0 +1,30 @@
+.category-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f9fa;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.category-bar button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  margin: 0 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.category-bar button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.category-bar button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+}

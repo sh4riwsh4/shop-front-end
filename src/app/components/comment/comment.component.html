@@ -1,0 +1,31 @@
+<div class="comments-section">
+  <div class="comments-header">
+    <h3 *ngIf="comments.length > 0">{{ comments.length }} Değerlendirme</h3>
+    <h3 *ngIf="comments.length === 0">Bu ürün için henüz değerlendirme yapılmamış.</h3>
+    <div *ngIf="comments.length > 0" class="average-rating">
+      <app-star-rating [rating]="averageRating" [readonly]="true"></app-star-rating>
+      <span>Ortalama değerlendirme: {{ averageRating.toFixed(1) }}</span>
+    </div>
+  </div>
+  <div *ngFor="let comment of comments" class="comment">
+    <app-star-rating [rating]="comment.rating" [readonly]="true"></app-star-rating>
+    <p>{{ comment.content }}</p>
+    <p class="comment-author">{{ comment.author }} <span class="comment-date">({{ comment.date | date:'dd MMMM yy' }})</span></p>
+    <hr>
+  </div>
+  <div *ngIf="isLoggedIn() && canComment">
+    <form (ngSubmit)="checkIfPurchased()">
+      <div>
+        <label for="content">Yorum:</label>
+        <textarea id="content" [(ngModel)]="newComment.content" name="content" required></textarea>
+      </div>
+      <div>
+        <label for="rating">Değerlendirme:</label>
+        <input id="rating" type="number" [(ngModel)]="newComment.rating" name="rating" min="1" max="5" required>
+        <div *ngIf="ratingError" class="error">1 ile 5 arasında bir oy vermelisin.</div>
+      </div>
+      <button type="submit">Gönder</button>
+    </form>
+    <a class="error"> {{errorMessage}} </a>
+  </div>
+</div>
